@@ -1,0 +1,12 @@
+<div class="timer-content">
+  <p ng-class="expireTimer()">{{ tasktime | timeconvert }}</p>
+</div>
+
+<div class="button-container">
+  <div class="button-styling">
+  	<p ng-class="setButtonClass()" ng-click="toggleTimer()" ng-hide="onBreak">{{ buttonText }}</p>
+
+    <p ng-class="setBreakButtonClass()" ng-click="toggleBreak()" ng-hide="!onBreak">{{ breakButtonText }}</p>
+  </div>
+</div>
+

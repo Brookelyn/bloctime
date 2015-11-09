@@ -1,0 +1,59 @@
+@import "animate";
+
+html {
+  font-family: 'Raleway', sans-serif;
+}
+
+.body-container {
+	margin: 0 auto;
+  max-width: 46.875em;
+
+	// .task-container {
+	// 	width: 30%;
+	// 	background-color: #CCCCFF;
+	// 	float: left;
+	// 	height: 100%;
+ //    display: none;
+	// }
+
+	.timer-container {
+		// float: right;
+		// width: 70%;
+		height: 100%;
+		
+
+    .timer-content {
+      margin: 0 auto;
+      width: 400px;
+      padding: 10em 0 3em 0;
+
+      
+        p {
+          font-size: 4em;
+          text-align: center;
+        }
+      
+    }
+	}
+}
+
+.button-container {
+        margin: 0 auto;
+        max-width: 46.875em;
+        height: 3em;
+        
+        
+      }
+
+      .button-styling {
+          margin: 0 auto;
+          
+            p {
+              font-family: 'Raleway', sans-serif;
+              height: 4em;
+              font-size: 2em;
+              text-align: center;
+              cursor: pointer;
+            }
+
+        }
