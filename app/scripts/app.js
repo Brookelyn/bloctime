@@ -35,6 +35,7 @@ bloctime.directive('clock', ['$interval',  function($interval) {
         scope.isTimerRunning = false;
         scope.isBreakRunning = false;
         scope.onBreak = false;
+        scope.sessionTracker = 0;
 
 
     // Sets functionality for start/reset timer button
@@ -55,7 +56,6 @@ bloctime.directive('clock', ['$interval',  function($interval) {
     };
 
 
-
     // Sets functionality for break button
     scope.toggleBreak = function() {
       if (scope.isBreakRunning === false) {
@@ -73,28 +73,40 @@ bloctime.directive('clock', ['$interval',  function($interval) {
     };
 
 
-    // Stops all timer countdowns at 00:00 and sets correct time for either task or break
+    // Stops all timer countdowns at 00:00 and sets correct time for task, short break or long break
     scope.expireTimer = function(){
       if (scope.tasktime === 0){
-        if (scope.isTimerRunning === true) {
+        
+        if (scope.sessionTracker <= 3) {
+          if (scope.isTimerRunning === true) {
+            $interval.cancel(scope.timerInterval);
+            scope.isTimerRunning = false;
+            scope.onBreak = true;
+            scope.tasktime = 3;
+            scope.sessionTracker += 1;
+            scope.breakButtonText = "Start break";
+            scope.buttonText = "Start";
+          }
+          if (scope.isBreakRunning === true) {
+            $interval.cancel(scope.timerInterval);
+            scope.onBreak = false;
+            scope.isBreakRunning = false;
+            scope.tasktime = 5;
+            scope.buttonText = "Start";
+          }
+        }
+        
+        if (scope.sessionTracker === 4) {
           $interval.cancel(scope.timerInterval);
-          scope.isTimerRunning = false;
           scope.onBreak = true;
-          scope.tasktime = 3;
+          scope.tasktime = 8;
+          scope.sessionTracker = 0;
           scope.breakButtonText = "Start break";
           scope.buttonText = "Start";
         }
-        if (scope.isBreakRunning === true) {
-          $interval.cancel(scope.timerInterval);
-          scope.onBreak = false;
-          scope.isBreakRunning = false;
-          scope.tasktime = 5;
-          scope.buttonText = "Start";
-        }
+
       }
     };
-
-
     
 
     // Changes button classes based on buttonText
@@ -106,7 +118,6 @@ bloctime.directive('clock', ['$interval',  function($interval) {
         return '';
       }
     };
-
 
 
     // Changes break button classes based on breadButtonText
@@ -124,6 +135,7 @@ bloctime.directive('clock', ['$interval',  function($interval) {
     }
   }
 }]);
+
 
 
 // Converts seconds display to seconds and minutes
