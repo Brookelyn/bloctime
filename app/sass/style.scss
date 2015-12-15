@@ -1,24 +1,92 @@
 @import "animate";
 
+
 html {
   font-family: 'Raleway', sans-serif;
 }
+
+.fake-nav {
+  height: 3em;
+  background-color: #666;
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+}
+
 
 .body-container {
 	margin: 0 auto;
   max-width: 46.875em;
 
-	// .task-container {
-	// 	width: 30%;
-	// 	background-color: #CCCCFF;
-	// 	float: left;
-	// 	height: 100%;
- //    display: none;
-	// }
+  .task-container {
+    z-index: 1;
+    
+
+    .hamburger {   
+    
+      .fa-bars {
+        color: #FFF;
+        font-size: 2em;
+        margin: 0.25em 0 0 0.5em;
+        cursor: pointer;
+      }
+    }
+    
+    .task-slider {
+      width: 40%;
+      background-color: #666;
+      float: left;
+      min-height: 40em;
+      font-color: #FFF;
+       
+           
+
+      .task-content {
+        margin: 2em 1em 1em 1em;
+
+        h2 {
+          color: #FFF;
+          font-size: 2.5em;
+          
+        }
+
+        .add-tasks {
+          margin-bottom: 1em;
+
+          form {
+            
+            input {
+              line-height: 2em;
+            }
+          }          
+        }
+      }
+    }
+
+    
+
+    
+
+
+    .task-list {
+      // margin: 1em;
+      color: #FFF;
+
+      li {
+        font-size: 1.25em;
+        line-height: 2em;
+
+        div {
+          float: right;
+        }
+      }
+    }
+  }
+
 
 	.timer-container {
-		// float: right;
-		// width: 70%;
+		float: right;
+		width: 60%;
 		height: 100%;
 		
 
@@ -38,22 +106,32 @@ html {
 }
 
 .button-container {
-        margin: 0 auto;
-        max-width: 46.875em;
-        height: 3em;
-        
-        
-      }
+  margin: 0 auto;
+  max-width: 46.875em;
+  height: 3em; 
+}
 
-      .button-styling {
-          margin: 0 auto;
-          
-            p {
-              font-family: 'Raleway', sans-serif;
-              height: 4em;
-              font-size: 2em;
-              text-align: center;
-              cursor: pointer;
+.button-styling {
+  margin: 0 auto;
+  
+    p {
+      font-family: 'Raleway', sans-serif;
+      height: 4em;
+      font-size: 2em;
+      text-align: center;
+      cursor: pointer;
+    }
+}
+
+.add-task-button {
+            align: right;
+            display: inline-block;
+            margin-top: 1em;
+            
+            .fa {
+              font-size: 2.75em;
+              color: #FFF;
+              
             }
-
-        }
+            
+          }
