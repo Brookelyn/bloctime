@@ -71,9 +71,9 @@ bloctime.controller('mainCtlr', function($scope, Task) {
   };
 
   
-  $('#slide-click').click(function(){
-    $('#task-slider').slideToggle('slow');
-  });
+  // $('#slide-click').click(function(){
+  //   $(this).next('.task-slider').slideToggle('slow');
+  // });
 
   
 
