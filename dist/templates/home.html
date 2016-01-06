@@ -1,1 +1,42 @@
-<h1>Home Page</h1>
+<div class="body-container">
+
+
+    <div class="task-container">
+      <!-- <div id="slide-click" class="hamburger"><i class="fa fa-bars"></i></div> -->
+
+      <div id="task-slider" class="task-slider">
+        <div class="task-content">
+          <h2>Tasks</h2>
+
+          <div class="add-tasks">
+            <form name="addItem" novalidate ng-submit="addTask()">
+              <input type="text" ng-model="task.text" placeholder=" Add task"></input>
+              <div class="add-task-button" ng-click="addTask()"><i class="fa fa-plus"></i></div>
+            </form>
+          </div>
+
+
+          <div class="task-list">
+            <!-- Task list display: ngRepeat task in tasks -->
+            <ul class="unstyled">
+              <li class="task" ng-repeat="task in tasks | orderBy: 'date-created'" ng-hide="task.complete === true">
+                {{task.name}}
+
+                
+                  <div><i class="fa fa-times" ng-click="deleteTask(task)"></i></div>
+                
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="timer-container">
+      <clock></clock>
+    </div>
+
+  </div>
+</div>
